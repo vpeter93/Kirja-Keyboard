@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Kirja Billentyűzet</string>
+    <string name="simple_ime">Kirja Billentyűzet</string>
+    <string name="subtype_hu_HU">Magyar (HU)</string>
+    <string name="theme">TÉMA</string>
+    <string name="shift">VÁLT</string>
+    <string name="delete">TÖRÖL</string>
+    <string name="caps">NŐ</string>
+    <string name="enter">ENTER</string>
+</resources>

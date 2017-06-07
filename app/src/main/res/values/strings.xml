@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Kirja Keyboard</string>
+    <string name="simple_ime">Kirja Keyboard</string>
+    <string name="subtype_hu_HU">Hungarian (HU)</string>
+    <string name="theme">THEME</string>
+    <string name="shift">SHIFT</string>
+    <string name="delete">DELETE</string>
+    <string name="caps">CAPS</string>
+    <string name="enter">ENTER</string>
+</resources>

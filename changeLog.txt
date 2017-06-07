@@ -1,0 +1,60 @@
+﻿----------------------------------------------------------------------------------------------
+Kirja Billentyűzet
+Készítette: Varga Péter (vpeter93@hotmail.com)
+----------------------------------------------------------------------------------------------
+A Kirja Billentyűzet kényelmes gépelést tesz lehetővé a magyar nyelvű felhasználóknak, 
+kétféle téma (fehér és fahatású) áll rendelkezésre, melyek között gombnyomással lehet váltani.
+Buta billentyűzet okos telefonra, tabletre: nem figyeli a felhasználói szokásokat, nincs adatküldés,
+automatikus kiegészítés, jóval kevesebb engedélyre van szüksége mint az alapértelmezett billentyűzetnek.
+----------------------------------------------------------------------------------------------
+Tervezett Változások 
+----------------------------------------------------------------------------------------------
+▶ Az összes magyar kiosztású számítógép billentyűzeten elérhető karakter kezelése
+▶ Smile nézet
+▶ Teljes szavas gombok külön nézeten
+▶ Nagyobb képernyőn kisebb méret, méret legyen állítható felhasználó által
+----------------------------------------------------------------------------------------------
+Kirja Keyboard v0.7.1 2017.05.14
+----------------------------------------------------------------------------------------------
+▶ Puszi és glóriás mosolygó fej szmájli unicode smileyt küld a szövegmezőbe és icont kapott
+▶ új gombok: :D :(
+▶ Betűméret dp-ben van megadva pixel helyett, így skálázódik
+----------------------------------------------------------------------------------------------
+Kirja Keyboard v0.7 2017.05.12
+----------------------------------------------------------------------------------------------
+▶ Puszi és glóriás mosolygó fej szmájli
+▶ .com és .hu gomb
+▶ Picikét kisebb magasságú gombok álló módban is
+----------------------------------------------------------------------------------------------
+Kirja Keyboard v0.6.10 2017.05.05
+----------------------------------------------------------------------------------------------
+▶ Refaktorálás
+----------------------------------------------------------------------------------------------
+Kirja Keyboard v0.6.9 2017.05.02
+----------------------------------------------------------------------------------------------
+▶ Új karakterek: đ Đ ł Ł ß ¤ € ☺
+▶ Elrendezés minimális változtatása
+▶ Az első nézeten nem érhető el a témagomb, csak a másodikon, a space egy kicsit nagyobb lett
+----------------------------------------------------------------------------------------------
+Kirja Keyboard v0.6.8 2017.04.27
+----------------------------------------------------------------------------------------------
+▶ Enter esemény javítása, most már Chrome böngészőben is működik
+----------------------------------------------------------------------------------------------
+Kirja Keyboard v0.6.7 2017.04.25
+----------------------------------------------------------------------------------------------
+▶ Választott téma megjegyzése
+▶ Új karakterek {}[]<>#&$~%=+-*/÷×§
+▶ Saját ikon
+▶ Magyar lokalizáció egyes szövegekre
+----------------------------------------------------------------------------------------------
+Kirja Keyboard v0.6.5 2017.04.24
+----------------------------------------------------------------------------------------------
+▶ Fekvő mód támogatása
+----------------------------------------------------------------------------------------------
+Kirja Keyboard v0.6 2017.04.23
+----------------------------------------------------------------------------------------------
+▶ A billentyűzet kinézete gombnyomással változtatható (fehér vagy fahatású)
+----------------------------------------------------------------------------------------------
+Kirja Keyboard v0.5 2017.04.22
+----------------------------------------------------------------------------------------------
+▶ Magyar folyószöveg írására rendelkezésre áll minden karakter egy nézeten belül, a gombok működnek.

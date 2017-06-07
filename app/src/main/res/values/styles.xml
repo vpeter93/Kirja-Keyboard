@@ -1,0 +1,21 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorGold</item>
+        <item name="colorPrimaryDark">@color/colorWood</item>
+        <item name="colorAccent">@color/colorWhite</item>
+    </style>
+    <style name="KirjaKeyboardViewStyle">
+        <item name="android:background">@color/colorBlack</item>
+        <item name="android:keyTextColor">@color/colorGold</item>
+    </style>
+    <style name="keyboardPreviewStyle">
+        <item name="android:textColor">@color/colorNeonGreen</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:background">@color/colorBlack</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>
