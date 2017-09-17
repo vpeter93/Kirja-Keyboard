@@ -14,6 +14,11 @@ Tervezett Változások
 ▶ Teljes szavas gombok külön nézeten
 ▶ Nagyobb képernyőn kisebb méret, méret legyen állítható felhasználó által
 ----------------------------------------------------------------------------------------------
+Kirja Keyboard v0.7.2 2017.09.17
+----------------------------------------------------------------------------------------------
+▶ Több térköz a billentyűk között, így nehezebb mellényomni
+▶ Kisebb billentyűk, így több látszik a képernyőből
+----------------------------------------------------------------------------------------------
 Kirja Keyboard v0.7.1 2017.05.14
 ----------------------------------------------------------------------------------------------
 ▶ Puszi és glóriás mosolygó fej szmájli unicode smileyt küld a szövegmezőbe és icont kapott
