@@ -8,6 +8,7 @@
     <Row>
         <Key android:codes="5013" android:keyWidth="20%p" android:keyLabel="@string/shift" android:keyEdgeFlags="left"/>
         <Key android:codes="4993" android:keyWidth="20%p" android:keyLabel="@string/theme"/>
+        <Key android:codes="5056" android:keyLabel="❤️"/>
     </Row>
     <Row>
         <Key android:codes="5044" android:keyLabel="ł" android:keyEdgeFlags="left"/>
