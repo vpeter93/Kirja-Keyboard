@@ -38,7 +38,7 @@ public class KirjaKeyboardView extends KeyboardView
     {
         switch(theme)
         {
-            case 2: theme = 0; break;
+            case 4: theme = 0; break;
             default: theme++; break;
         }
     }
@@ -66,9 +66,27 @@ public class KirjaKeyboardView extends KeyboardView
 
         for (Keyboard.Key key : keys)
         {
-            if(theme == 1 || theme == 2)
+            if(theme == 1 || theme == 2 )
             {
                 Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.key_background,null);
+                if(drawable != null)
+                {
+                    drawable.setBounds(key.x, key.y, key.x + key.width, key.y + key.height);
+                    drawable.draw(canvas);
+                }
+            }
+            if(theme == 3)
+            {
+                Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.key_purplebackground,null);
+                if(drawable != null)
+                {
+                    drawable.setBounds(key.x, key.y, key.x + key.width, key.y + key.height);
+                    drawable.draw(canvas);
+                }
+            }
+            if(theme == 4)
+            {
+                Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.key_backgroundred,null);
                 if(drawable != null)
                 {
                     drawable.setBounds(key.x, key.y, key.x + key.width, key.y + key.height);
@@ -104,10 +122,14 @@ public class KirjaKeyboardView extends KeyboardView
             }
             if(theme == 1)
                 paint.setColor(ContextCompat.getColor(getContext(), R.color.colorGold));
+            else if(theme == 4)
+                paint.setColor(ContextCompat.getColor(getContext(), R.color.colorCream));
             else if(theme == 2)
                 paint.setColor(ContextCompat.getColor(getContext(), R.color.colorGreen));
             else if(theme == 0)
                 paint.setColor(Color.BLACK);
+            else if(theme == 3)
+                paint.setColor(Color.WHITE);
             if (key.label != null)
             {
                 canvas.drawText(key.label.toString(), key.x + (key.width / 2), key.y + (key.height / 2 + key.height/8), paint);
