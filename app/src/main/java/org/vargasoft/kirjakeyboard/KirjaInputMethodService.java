@@ -217,6 +217,10 @@ public class KirjaInputMethodService extends InputMethodService implements Keybo
         {
             ic.commitText("❤️",4);
         }
+        else if(primaryCode == 5057)
+        {
+            ic.commitText("\uD83D\uDC9C️",4);
+        }
         else
         {
             switch(primaryCode)
