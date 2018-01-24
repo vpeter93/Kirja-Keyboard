@@ -11,10 +11,10 @@
         <Key android:codes="5050" android:keyLabel=".com" />
         <Key android:codes="5052" android:keyLabel=".hu" />
         <Key android:codes="58" android:keyLabel=":"/>
+        <Key android:codes="5011" android:keyLabel=")" />
+        <Key android:codes="5010" android:keyLabel="(" />
         <Key android:codes="47" android:keyLabel="/" />
         <Key android:codes="4995" android:keyLabel='"' />
-        <Key android:codes="5010" android:keyLabel="(" />
-        <Key android:codes="5011" android:keyLabel=")" />
         <Key android:codes="4998" android:keyLabel="ä" android:keyEdgeFlags="right"/>
     </Row>
     <Row>
@@ -75,8 +75,8 @@
         <Key android:codes="98" android:keyLabel="b"/>
         <Key android:codes="110" android:keyLabel="n"/>
         <Key android:codes="109" android:keyLabel="m"/>
-        <Key android:codes="46" android:keyLabel="."/>
-        <Key android:codes="44" android:keyLabel="," android:keyEdgeFlags="right"/>
+        <Key android:codes="46" android:keyLabel="." android:keyOutputText="."/>
+        <Key android:codes="44" android:keyLabel="," android:keyEdgeFlags="right" android:keyOutputText=","/>
     </Row>
     <Row android:rowEdgeFlags="bottom">
         <Key android:codes="63" android:keyLabel="\?" android:keyWidth="10%p" android:keyEdgeFlags="left"/>

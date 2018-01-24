@@ -16,8 +16,6 @@ import android.util.TypedValue;
 
 import java.util.List;
 
-import org.vargasoft.kirjakeyboard.R;
-
 /**
  * My own KeyboardView with themes and persistent preferences.
  * Created by Varga Péter on 2017. 04. 23..
@@ -68,7 +66,7 @@ public class KirjaKeyboardView extends KeyboardView
         {
             if(theme == 1 || theme == 2 )
             {
-                Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.key_background,null);
+                Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.xmlkey_background,null);
                 if(drawable != null)
                 {
                     drawable.setBounds(key.x, key.y, key.x + key.width, key.y + key.height);
@@ -77,7 +75,7 @@ public class KirjaKeyboardView extends KeyboardView
             }
             if(theme == 3)
             {
-                Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.key_purplebackground,null);
+                Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.xmlkey_purplebackground,null);
                 if(drawable != null)
                 {
                     drawable.setBounds(key.x, key.y, key.x + key.width, key.y + key.height);
@@ -86,7 +84,7 @@ public class KirjaKeyboardView extends KeyboardView
             }
             if(theme == 4)
             {
-                Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.key_backgroundred,null);
+                Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.xmlkey_backgroundred,null);
                 if(drawable != null)
                 {
                     drawable.setBounds(key.x, key.y, key.x + key.width, key.y + key.height);
@@ -95,7 +93,7 @@ public class KirjaKeyboardView extends KeyboardView
             }
             else if(theme == 0)
             {
-                Drawable drawable = ResourcesCompat.getDrawable(getResources(),R.drawable.key_background2,null);
+                Drawable drawable = ResourcesCompat.getDrawable(getResources(),R.drawable.xmlkey_background2,null);
                 if(drawable != null)
                 {
                     drawable.setBounds(key.x, key.y, key.x + key.width, key.y + key.height);
@@ -140,5 +138,6 @@ public class KirjaKeyboardView extends KeyboardView
                 key.icon.draw(canvas);
             }
         }
+
     }
 }

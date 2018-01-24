@@ -11,10 +11,10 @@
         <Key android:codes="5050" android:keyLabel=".com" />
         <Key android:codes="5052" android:keyLabel=".hu" />
         <Key android:codes="58" android:keyLabel=":"/>
+        <Key android:codes="5011" android:keyLabel=")" />
+        <Key android:codes="5010" android:keyLabel="(" />
         <Key android:codes="47" android:keyLabel="/" />
         <Key android:codes="4995" android:keyLabel='"' />
-        <Key android:codes="5010" android:keyLabel="(" />
-        <Key android:codes="5011" android:keyLabel=")" />
         <Key android:codes="4998" android:keyLabel="ä" android:keyEdgeFlags="right"/>
     </Row>
     <Row>

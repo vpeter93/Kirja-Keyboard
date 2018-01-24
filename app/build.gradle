@@ -1,20 +1,51 @@
 apply plugin: 'com.android.application'
+ext.densityCodes = ['mdpi': 1, 'hdpi': 2, 'xhdpi': 3, 'xxhdpi':4, 'xxxhdpi':5]
 
+import com.android.build.OutputFile
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 27
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "keyboard.kirjasoft.org.kirjakeyboard"
-        minSdkVersion 9
-        targetSdkVersion 25
-        versionCode 7330
-        versionName "0.7.3.3"
+        minSdkVersion 14
+        targetSdkVersion 27
+        versionCode 7360
+        versionName "0.7.3.6"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        resConfigs "en", "hu"
     }
+    splits {
+        density {
+            enable true
+            reset()
+            include "mdpi", "hdpi", "xhdpi","xxhdpi","xxxhdpi"
+            compatibleScreens 'small', 'normal', 'large', 'xlarge'
+        }
+    }
+    lintOptions {
+
+        checkReleaseBuilds false
+
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    android.applicationVariants.all { variant ->
+
+        variant.outputs.each { output ->
+
+            def baseDensityVersionCode = project.ext.densityCodes.get(output.getFilter(OutputFile.DENSITY))
+
+            if (baseDensityVersionCode != null) {
+                output.versionCodeOverride =
+                        baseDensityVersionCode * 10000000 + variant.versionCode
+            }
         }
     }
 }
@@ -24,7 +55,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:appcompat-v7:27.0.2'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
 }

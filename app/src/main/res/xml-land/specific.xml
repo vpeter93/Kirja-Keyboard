@@ -8,8 +8,9 @@
     <Row>
         <Key android:codes="5013" android:keyWidth="20%p" android:keyLabel="@string/shift" android:keyEdgeFlags="left"/>
         <Key android:codes="4993" android:keyWidth="20%p" android:keyLabel="@string/theme"/>
+        <Key android:codes="6058" android:keyLabel="^"/>
         <Key android:codes="5056" android:keyLabel="❤️"/>
-        <Key android:codes="5057" android:keyIcon="@drawable/purplehearth"/>
+        <Key android:codes="5057" android:keyIcon="@drawable/xmlpurplehearth"/>
     </Row>
     <Row>
         <Key android:codes="5044" android:keyLabel="ł" android:keyEdgeFlags="left"/>
@@ -18,10 +19,10 @@
         <Key android:codes="5048" android:keyLabel="€"/>
         <Key android:codes="5028" android:keyLabel="-"/>
         <Key android:codes="5049" android:keyLabel="☺"/>
-        <Key android:codes="5054" android:keyIcon="@drawable/smiley_grin"/>
-        <Key android:codes="5055"  android:keyIcon="@drawable/smiley_frawning"/>
-        <Key android:codes="5053" android:keyIcon="@drawable/smiley_angel"/>
-        <Key android:codes="5051" android:keyIcon="@drawable/smiley_kiss" android:keyEdgeFlags="right"/>
+        <Key android:codes="5054" android:keyIcon="@drawable/xmlsmiley_grin"/>
+        <Key android:codes="5055"  android:keyIcon="@drawable/xmlsmiley_frawning"/>
+        <Key android:codes="5053" android:keyIcon="@drawable/xmlsmiley_angel"/>
+        <Key android:codes="5051" android:keyIcon="@drawable/xmlsmiley_kiss" android:keyEdgeFlags="right"/>
     </Row>
     <Row>
         <Key android:codes="48" android:keyLabel="0" android:keyEdgeFlags="left"/>
