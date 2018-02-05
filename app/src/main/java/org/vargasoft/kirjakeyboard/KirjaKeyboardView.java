@@ -36,7 +36,7 @@ public class KirjaKeyboardView extends KeyboardView
     {
         switch(theme)
         {
-            case 4: theme = 0; break;
+            case 5: theme = 0; break;
             default: theme++; break;
         }
     }
@@ -91,6 +91,15 @@ public class KirjaKeyboardView extends KeyboardView
                     drawable.draw(canvas);
                 }
             }
+            if(theme == 5)
+            {
+                Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.xmlsmurfbluegomb,null);
+                if(drawable != null)
+                {
+                    drawable.setBounds(key.x, key.y, key.x + key.width, key.y + key.height);
+                    drawable.draw(canvas);
+                }
+            }
             else if(theme == 0)
             {
                 Drawable drawable = ResourcesCompat.getDrawable(getResources(),R.drawable.xmlkey_background2,null);
@@ -128,6 +137,11 @@ public class KirjaKeyboardView extends KeyboardView
                 paint.setColor(Color.BLACK);
             else if(theme == 3)
                 paint.setColor(Color.WHITE);
+            else if(theme == 5)
+            {
+                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD_ITALIC));
+                paint.setColor(ContextCompat.getColor(getContext(), R.color.colorPurple));
+            }
             if (key.label != null)
             {
                 canvas.drawText(key.label.toString(), key.x + (key.width / 2), key.y + (key.height / 2 + key.height/8), paint);

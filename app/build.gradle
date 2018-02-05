@@ -9,8 +9,8 @@ android {
         applicationId "keyboard.kirjasoft.org.kirjakeyboard"
         minSdkVersion 14
         targetSdkVersion 27
-        versionCode 7360
-        versionName "0.7.3.6"
+        versionCode 7370
+        versionName "0.7.3.7"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         resConfigs "en", "hu"
     }
