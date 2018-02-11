@@ -7,15 +7,40 @@
         <item name="colorPrimaryDark">@color/colorWood</item>
         <item name="colorAccent">@color/colorWhite</item>
     </style>
+    <style name="TextAppearance.DialogWindowTitle" parent="@android:style/TextAppearance.DialogWindowTitle">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorGold</item>
+    </style>
+    <style name="KirjaDialog" parent="@android:style/Theme.Holo.Dialog">
+        <item name="android:windowTitleStyle">@style/KirjaDialogTitle</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+    <style name="KirjaDialogTitle">
+        <item name="android:background">@drawable/xml_marvany_repeatable</item>
+        <item name="android:textAppearance">@style/TextAppearance.DialogWindowTitle</item>
+    </style>
+
+
+
     <style name="KirjaKeyboardViewStyle">
         <item name="android:background">@color/colorBlack</item>
         <item name="android:keyTextColor">@color/colorGold</item>
     </style>
+
     <style name="keyboardPreviewStyle">
         <item name="android:textColor">@color/colorNeonGreen</item>
         <item name="android:textSize">30sp</item>
         <item name="android:background">@color/colorBlack</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

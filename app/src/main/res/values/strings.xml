@@ -7,4 +7,95 @@
     <string name="delete">DELETE</string>
     <string name="caps">CAPS</string>
     <string name="enter">ENTER</string>
+    <string name="texture">TEXTURE</string>
+    <string name="fontColor">FONT COLOR</string>
+    <string name="backgroundColor">BACKGROUND COLOR</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_settings">Keyboard settings</string>
+    <string name="selectTexture">Select your background texture!</string>
+    <string name="test">Test</string>
+
+
+    <string-array name="names">
+        <item>Wood</item>
+        <item>Márvány</item>
+        <item>White márvány</item>
+        <item>Carbon</item>
+        <item>Water</item>
+        <item>Water 2</item>
+        <item>Peddles</item>
+        <item>Bubbles</item>
+        <item>Lava</item>
+        <item>Fire</item>
+        <item>Mozaik</item>
+        <item>Feathers</item>
+        <item>Catdragon fur</item>
+        <item>Leopard fur</item>
+        <item>Tiger fur</item>
+        <item>Blue dragon skin</item>
+        <item>Flowers</item>
+        <item>Flowers 2</item>
+        <item>Parchment</item>
+        <item>Fractal</item>
+        <item>Abstract</item>
+        <item>Abstract 2</item>
+        <item>Jade</item>
+    </string-array>
+
+    <string-array name="flags">
+        <item>@drawable/xmlwood</item>
+        <item>@drawable/xmlmarvany</item>
+        <item>@drawable/xmlfehermarvany</item>
+        <item>@drawable/xml_carbon</item>
+        <item>@drawable/xml_serys_water</item>
+        <item>@drawable/xml_serys_water2</item>
+        <item>@drawable/xml_serys_pebbles</item>
+        <item>@drawable/xml_serys_bubbles</item>
+        <item>@drawable/xml_serys_lava</item>
+        <item>@drawable/xml_serys_fire</item>
+        <item>@drawable/xml_serys_mozaik</item>
+        <item>@drawable/xml_serys_feather</item>
+        <item>@drawable/xml_serys_macskany_fur</item>
+        <item>@drawable/xml_serys_leopard_fur</item>
+        <item>@drawable/xml_serys_tiger_fur</item>
+        <item>@drawable/xml_serys_dragon_skin_blue</item>
+        <item>@drawable/xml_serys_flower</item>
+        <item>@drawable/xml_serys_flower2</item>
+        <item>@drawable/xml_pergamen</item>
+        <item>@drawable/xml_fractal</item>
+        <item>@drawable/xml_abstract</item>
+        <item>@drawable/xml_abstractfire</item>
+        <item>@drawable/xml_jade</item>
+    </string-array>
+
+    <integer-array name="keyHeights">
+        <item>32</item>
+        <item>40</item>
+    </integer-array>
+
+    <integer-array name="numbers">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+    </integer-array>
 </resources>

@@ -4,7 +4,9 @@ import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
+
 
 /**
  * My own InputMethodService.
@@ -28,66 +30,40 @@ public class KirjaInputMethodService extends InputMethodService implements Keybo
     @Override public View onCreateInputView()
     {
         keyboardView = (KirjaKeyboardView)getLayoutInflater().inflate(R.layout.keyboard, null);
-        keyboard = new Keyboard(this, R.xml.qwerty);
-        keyboardView.setKeyboard(keyboard);
-        keyboardView.setOnKeyboardActionListener(this);
+        keyboardView.loadPreferences();
+        switchQwerty();
+
         isCapsLockOn = true;
         capsLock();
         return keyboardView;
     }
-    private char hungarianCharacters(int primaryCode)
+
+    public void switchQwerty()
     {
-        switch (primaryCode)
+        if(keyboardView.getKeyHeightDp() == 40)
         {
-            case KEY_KOTOJEL: 		return '-';
-            case 4995: 		        return '"';
-            case 4996: 	            return '\\';
-            case 4997: 			    return '*';
-            case 4998: 			    return 'ä';
-            case 4999: 	            return ';';
-            case 5000: 			    return 'á';
-            case 5001: 			    return 'é';
-            case 5002: 			    return 'ű';
-            case 5003: 			    return 'í';
-            case 5004: 			    return 'ú';
-            case 5005: 			    return 'ó';
-            case 5006: 			    return 'ő';
-            case 5007: 			    return 'ö';
-            case KEY_Ü: 			return 'ü';
-            case KEY_LEFT_PAREN:    return '(';
-            case KEY_RIGHT_PAREN:   return ')';
-            case 5020: 				return '<';
-            case 5021: 				return '>';
-            case 5022: 				return '{';
-            case 5023: 				return '}';
-            case 5024: 				return '[';
-            case 5025: 				return ']';
-            case 5026: 				return '/';
-            case 5027: 				return '+';
-            case 5028: 				return '-';
-            case 5029: 				return '*';
-            case 5030: 				return '~';
-            case 5031:				return '|';
-            case 5032: 				return '%';
-            case 5033: 				return '=';
-            case 5034: 				return '$';
-            case 5035: 				return '#';
-            case 5036: 				return '&';
-            case 5037: 				return '÷';
-            case 5038: 				return '×';
-            case 5039: 				return '§';
-            case 5040: 				return '&';
-            case 5041: 				return '°';
-            case 5042: 				return 'đ';
-            case 5043: 				return 'Đ';
-            case 5044: 				return 'ł';
-            case 5045: 				return 'Ł';
-            case 5046: 				return 'ß';
-            case 5047: 				return '¤';
-            case 5048: 				return '€';
-            case 5049: 				return '☺';
-            default: 				return ' ';
+            if(!keyboardView.getNumbersInMainView())
+                keyboard = new Keyboard(this, R.xml.qwerty);
+            else keyboard = new Keyboard(this, R.xml.qwertywithnumbers);
         }
+        else if(keyboardView.getKeyHeightDp() == 32)
+        {
+            if(!keyboardView.getNumbersInMainView())
+                keyboard = new Keyboard(this, R.xml.qwertysmall);
+            else keyboard = new Keyboard(this, R.xml.qwertywithnumberssmall);
+        }
+        keyboardView.setKeyboard(keyboard);
+        keyboardView.setOnKeyboardActionListener(this);
+    }
+    public void switchSpecific()
+    {
+        if(keyboardView.getKeyHeightDp() == 40)
+            keyboard = new Keyboard(this, R.xml.specific);
+        else if(keyboardView.getKeyHeightDp() == 32)
+            keyboard = new Keyboard(this, R.xml.specificsmall);
+
+        keyboardView.setKeyboard(keyboard);
+        keyboardView.setOnKeyboardActionListener(this);
     }
     private void capsLock()
     {
@@ -145,15 +121,17 @@ public class KirjaInputMethodService extends InputMethodService implements Keybo
                 sendDefaultEditorAction(true);
             break;
             case 5012 :
-                keyboard = new Keyboard(this, R.xml.specific);
-                keyboardView.setKeyboard(keyboard);
-                keyboardView.setOnKeyboardActionListener(this);
+                //keyboard = new Keyboard(this, R.xml.specific);
+                switchSpecific();
+                /*keyboardView.setKeyboard(keyboard);
+                keyboardView.setOnKeyboardActionListener(this);*/
                 capsLock();
             break;
             case 5013 :
-                keyboard = new Keyboard(this, R.xml.qwerty);
-                keyboardView.setKeyboard(keyboard);
-                keyboardView.setOnKeyboardActionListener(this);
+                switchQwerty();
+                //keyboard = new Keyboard(this, R.xml.qwerty);
+                /*keyboardView.setKeyboard(keyboard);
+                keyboardView.setOnKeyboardActionListener(this);*/
                 capsLock();
             break;
             case 4993 :
@@ -181,6 +159,22 @@ public class KirjaInputMethodService extends InputMethodService implements Keybo
                 }
                 ic.commitText(dothu,3);
             break;
+            case 6001 :
+                String dotorg = ".org";
+                if(isCapsLockOn)
+                {
+                    dotorg = dotorg.toUpperCase();
+                }
+                ic.commitText(dotorg,3);
+                break;
+            case 6002 :
+                String doteu = ".eu";
+                if(isCapsLockOn)
+                {
+                    doteu = doteu.toUpperCase();
+                }
+                ic.commitText(doteu,3);
+                break;
             case 5053 :
                 ic.commitText("\uD83D\uDE07",2);//O:)
             break;
@@ -304,7 +298,7 @@ public class KirjaInputMethodService extends InputMethodService implements Keybo
             case 5025: 				ic.commitText("]",1); break;
             case 5026: 				ic.commitText("/",1); break;
             case 5027: 				ic.commitText("+",1); break;
-            case 5028: 				ic.commitText("-",1); break;
+            case 5028: 				ic.commitText("_",1); break;
             case 5029: 				ic.commitText("*",1); break;
             case 5030: 				ic.commitText("~",1); break;
             case 5031:				ic.commitText("|",1); break;
@@ -318,6 +312,7 @@ public class KirjaInputMethodService extends InputMethodService implements Keybo
             case 5039: 				ic.commitText("§",1); break;
             case 5040: 				ic.commitText("&",1); break;
             case 5041: 				ic.commitText("°",1); break;
+            case 6000: 				ic.commitText("'",1); break;
             case 5042:
                 code = 'đ';
                 if(isCapsLockOn)
@@ -370,21 +365,6 @@ public class KirjaInputMethodService extends InputMethodService implements Keybo
                 ic.commitText(String.valueOf(code),1);
             break;
         }
-
-
-
-        /*if((primaryCode >= KEY_KOTOJEL && primaryCode <= KEY_Ü)
-                || (primaryCode <= 5049 && primaryCode >= 5020) ||
-                primaryCode == KEY_LEFT_PAREN || primaryCode == KEY_RIGHT_PAREN)
-        {
-            char code = hungarianCharacters(primaryCode);
-            if(isCapsLockOn)
-            {
-                code = Character.toUpperCase(code);
-            }
-            ic.commitText(String.valueOf(code),1);
-        }*/
-
     }
 
     @Override public void onPress(int primaryCode) {}

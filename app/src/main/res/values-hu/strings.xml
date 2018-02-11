@@ -7,4 +7,95 @@
     <string name="delete">TÖRÖL</string>
     <string name="caps">NŐ</string>
     <string name="enter">ENTER</string>
+    <string name="texture">TEXTÚRA</string>
+    <string name="fontColor">BETŰSZÍN</string>
+    <string name="backgroundColor">HÁTTÉRSZÍN</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_settings">Billentyűzet beállítások</string>
+    <string name="selectTexture">Válaszd ki a háttértextúrát!</string>
+    <string name="test">Teszt</string>
+
+
+    <string-array name="names">
+        <item>Fa</item>
+        <item>Márvány</item>
+        <item>Fehér márvány</item>
+        <item>Karbon</item>
+        <item>Víz</item>
+        <item>Víz 2</item>
+        <item>Kövek</item>
+        <item>Buborékok</item>
+        <item>Láva</item>
+        <item>Tűz</item>
+        <item>Mozaik</item>
+        <item>Tollak</item>
+        <item>Macskány szőr</item>
+        <item>Leopárd szőr</item>
+        <item>Tigris szőr</item>
+        <item>Kék sárkánypikkely</item>
+        <item>Virágok</item>
+        <item>Virágok 2</item>
+        <item>Pergamen</item>
+        <item>Fraktál</item>
+        <item>Absztrakt</item>
+        <item>Absztrakt 2</item>
+        <item>Jáde</item>
+    </string-array>
+
+    <integer-array name="keyHeights">
+        <item>32</item>
+        <item>40</item>
+    </integer-array>
+
+    <string-array name="flags">
+        <item>@drawable/xmlwood</item>
+        <item>@drawable/xmlmarvany</item>
+        <item>@drawable/xmlfehermarvany</item>
+        <item>@drawable/xml_carbon</item>
+        <item>@drawable/xml_serys_water</item>
+        <item>@drawable/xml_serys_water2</item>
+        <item>@drawable/xml_serys_pebbles</item>
+        <item>@drawable/xml_serys_bubbles</item>
+        <item>@drawable/xml_serys_lava</item>
+        <item>@drawable/xml_serys_fire</item>
+        <item>@drawable/xml_serys_mozaik</item>
+        <item>@drawable/xml_serys_feather</item>
+        <item>@drawable/xml_serys_macskany_fur</item>
+        <item>@drawable/xml_serys_leopard_fur</item>
+        <item>@drawable/xml_serys_tiger_fur</item>
+        <item>@drawable/xml_serys_dragon_skin_blue</item>
+        <item>@drawable/xml_serys_flower</item>
+        <item>@drawable/xml_serys_flower2</item>
+        <item>@drawable/xml_pergamen</item>
+        <item>@drawable/xml_fractal</item>
+        <item>@drawable/xml_abstract</item>
+        <item>@drawable/xml_abstractfire</item>
+        <item>@drawable/xml_jade</item>
+    </string-array>
+
+    <integer-array name="numbers">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+    </integer-array>
 </resources>
