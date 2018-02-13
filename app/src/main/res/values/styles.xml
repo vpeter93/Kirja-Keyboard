@@ -11,9 +11,8 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/colorGold</item>
     </style>
-    <style name="KirjaDialog" parent="@android:style/Theme.Holo.Dialog">
+    <style name="KirjaDialog" parent="@android:style/Theme.Holo.Light.Dialog">
         <item name="android:windowTitleStyle">@style/KirjaDialogTitle</item>
-        <item name="android:textColor">@color/colorBlack</item>
     </style>
     <style name="KirjaDialogTitle">
         <item name="android:background">@drawable/xml_marvany_repeatable</item>

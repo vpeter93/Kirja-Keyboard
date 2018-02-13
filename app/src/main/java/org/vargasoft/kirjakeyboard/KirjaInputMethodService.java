@@ -3,6 +3,9 @@ package org.vargasoft.kirjakeyboard;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
+import android.text.InputType;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
@@ -26,16 +29,82 @@ public class KirjaInputMethodService extends InputMethodService implements Keybo
     private final int KEY_RIGHT_PAREN 	  = 5011;
 
     private boolean isCapsLockOn 		  = false;
+    private boolean multiLineText;
+    private boolean isFacebookMessenger;
 
     @Override public View onCreateInputView()
     {
         keyboardView = (KirjaKeyboardView)getLayoutInflater().inflate(R.layout.keyboard, null);
         keyboardView.loadPreferences();
+        keyboardView.setPreviewEnabled(false);
         switchQwerty();
 
         isCapsLockOn = true;
         capsLock();
         return keyboardView;
+    }
+
+    @Override
+    public void onStartInput(EditorInfo info, boolean restarting) {
+        super.onStartCandidatesView(info, restarting);
+
+        int inputType = info.inputType & InputType.TYPE_MASK_VARIATION;
+       // int inputflags = info.inputType | InputType.TYPE_MASK_FLAGS;
+
+        if(inputType == EditorInfo.TYPE_TEXT_VARIATION_URI)
+        {
+            multiLineText = false;
+        }
+        /*if(inputType == EditorInfo.TYPE_TEXT_VARIATION_NORMAL)
+        {
+            Log.wtf("..............","-----------------"+"EditorInfo.TYPE_TEXT_VARIATION_NORMAL");
+        }
+        if(inputType == EditorInfo.TYPE_TEXT_VARIATION_LONG_MESSAGE)
+        {
+            Log.wtf("..............","-----------------"+"EditorInfo.TYPE_TEXT_VARIATION_LONG_MESSAGE");
+        }
+        if(inputType == EditorInfo.TYPE_TEXT_VARIATION_WEB_EDIT_TEXT)
+        {
+            Log.wtf("..............","-----------------"+"EditorInfo.TYPE_TEXT_VARIATION_WEB_EDIT_TEXT");
+        }
+        if(inputType == EditorInfo.TYPE_NULL)
+        {
+            Log.wtf("..............","-----------------"+"EditorInfo.TYPE_NULL");
+        }
+        if((inputflags & EditorInfo.TYPE_TEXT_FLAG_IME_MULTI_LINE)!=0)
+        {
+            Log.wtf("..............","-----------------"+"EditorInfo.TYPE_TEXT_FLAG_IME_MULTI_LINE");
+        }
+        if((inputflags & EditorInfo.TYPE_TEXT_FLAG_MULTI_LINE)!=0)
+        {
+            Log.wtf("..............","-----------------"+"EditorInfo.TYPE_TEXT_FLAG_MULTI_LINE");
+        }
+        if((inputType & EditorInfo.TYPE_TEXT_FLAG_AUTO_COMPLETE)!=0)
+        {
+            Log.wtf("..............","-----------------"+"EditorInfo.TYPE_TEXT_FLAG_AUTO_COMPLETE");
+        }
+        if((inputType & EditorInfo.TYPE_TEXT_FLAG_CAP_SENTENCES)!=0)
+        {
+            Log.wtf("..............","-----------------"+"EditorInfo.TYPE_TEXT_FLAG_CAP_SENTENCES");
+        }
+        if(inputType == EditorInfo.TYPE_TEXT_VARIATION_SHORT_MESSAGE)
+        {
+            Log.wtf("..............","-----------------"+"EditorInfo.TYPE_TEXT_VARIATION_SHORT_MESSAGE");
+        }*/
+        else
+        {
+            multiLineText = true;
+        }
+        if(info.packageName.equals("com.facebook.orca") || inputType == EditorInfo.TYPE_TEXT_VARIATION_LONG_MESSAGE || inputType == EditorInfo.TYPE_TEXT_VARIATION_SHORT_MESSAGE)
+        {
+            isFacebookMessenger = true;
+        }
+        else
+        {
+            isFacebookMessenger = false;
+
+        }
+
     }
 
     public void switchQwerty()
@@ -98,6 +167,16 @@ public class KirjaInputMethodService extends InputMethodService implements Keybo
             keyboardView.invalidateAllKeys();
         }
     }
+    @Override public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+
+
+        if(keyCode == KeyEvent.KEYCODE_ENTER)
+            return false;
+
+
+        return super.onKeyDown(keyCode, event);
+    }
     @Override public void onKey(int primaryCode, int[] keyCodes)
     {
         InputConnection ic = getCurrentInputConnection();
@@ -118,20 +197,21 @@ public class KirjaInputMethodService extends InputMethodService implements Keybo
                 ic.deleteSurroundingText(1, 0);
                 break;
             case -4://ENTER KEY
-                sendDefaultEditorAction(true);
+                /*if(multiLineText && !isFacebookMessenger)
+                   ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));*/
+                if(/*!multiLineText &&*/ !isFacebookMessenger)
+                    sendDefaultEditorAction(true);
+                else if(isFacebookMessenger)
+                {
+                    ic.commitText("\n",1);
+                }
             break;
             case 5012 :
-                //keyboard = new Keyboard(this, R.xml.specific);
                 switchSpecific();
-                /*keyboardView.setKeyboard(keyboard);
-                keyboardView.setOnKeyboardActionListener(this);*/
                 capsLock();
             break;
             case 5013 :
                 switchQwerty();
-                //keyboard = new Keyboard(this, R.xml.qwerty);
-                /*keyboardView.setKeyboard(keyboard);
-                keyboardView.setOnKeyboardActionListener(this);*/
                 capsLock();
             break;
             case 4993 :
@@ -367,9 +447,22 @@ public class KirjaInputMethodService extends InputMethodService implements Keybo
         }
     }
 
-    @Override public void onPress(int primaryCode) {}
+    @Override public void onPress(int primaryCode)
+    {
+        if (primaryCode == 5012 || primaryCode == 5013 || primaryCode == 4993 || primaryCode == -5 || primaryCode == -4 || primaryCode== 32)
+        {
 
-    @Override public void onRelease(int primaryCode) {}
+        }
+        else
+        {
+            keyboardView.setPreviewEnabled(true);
+        }
+    }
+
+    @Override public void onRelease(int primaryCode)
+    {
+        keyboardView.setPreviewEnabled(false);
+    }
 
     @Override public void onText(CharSequence text) {}
 

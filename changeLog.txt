@@ -3,16 +3,21 @@ Kirja Billentyűzet
 Készítette: Varga Péter (vpeter93@hotmail.com)
 ----------------------------------------------------------------------------------------------
 A Kirja Billentyűzet kényelmes gépelést tesz lehetővé a magyar nyelvű felhasználóknak, 
-kétféle téma (fehér és fahatású) áll rendelkezésre, melyek között gombnyomással lehet váltani.
+hétféle téma áll rendelkezésre, melyek között gombnyomással lehet váltani. A szögletes témát a felhasználó
+szabhatja testre.
 Buta billentyűzet okos telefonra, tabletre: nem figyeli a felhasználói szokásokat, nincs adatküldés,
 automatikus kiegészítés, jóval kevesebb engedélyre van szüksége mint az alapértelmezett billentyűzetnek.
 ----------------------------------------------------------------------------------------------
 Tervezett Változások 
 ----------------------------------------------------------------------------------------------
-▶ Az összes magyar kiosztású számítógép billentyűzeten elérhető karakter kezelése
 ▶ Smile nézet
 ▶ Teljes szavas gombok külön nézeten
-▶ Nagyobb képernyőn kisebb méret, méret legyen állítható felhasználó által
+▶ Felhasználó által megadható legyen a gombtextúra
+▶ Automatikus nagybetűkezelés bekapcsolható formában
+----------------------------------------------------------------------------------------------
+Kirja Keyboard v0.8.1 2018.02.13
+----------------------------------------------------------------------------------------------
+▶ Javított enterkezelés
 ----------------------------------------------------------------------------------------------
 Kirja Keyboard v0.8 2018.02.11
 ----------------------------------------------------------------------------------------------

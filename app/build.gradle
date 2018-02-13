@@ -10,8 +10,8 @@ android {
         applicationId "keyboard.kirjasoft.org.kirjakeyboard"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 8000
-        versionName "0.8"
+        versionCode 8006
+        versionName "0.8.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         resConfigs "en", "hu"
     }
