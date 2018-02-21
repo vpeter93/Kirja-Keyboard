@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context="org.vargasoft.colorpicker.ColorChooser">
+
+    <View
+        android:id="@+id/colorView"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:paddingBottom="@dimen/colorChooserVerticalMargin"
+        android:paddingLeft="@dimen/colorChooserHorizontalMargin"
+        android:paddingRight="@dimen/colorChooserHorizontalMargin"
+        android:paddingTop="@dimen/colorChooserVerticalMargin">
+
+        <org.vargasoft.colorpicker.ColorChooserSeekBar
+            android:id="@+id/alphaSeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/colorChooserTextAlpha"
+            android:max="255"
+            android:maxHeight="3dip"
+            android:minHeight="3dip"
+            android:progressDrawable="@drawable/xml_alpha_progress"
+            android:textColor="@android:color/black"
+            android:thumb="@drawable/xml_alpha_thumb" />
+
+        <org.vargasoft.colorpicker.ColorChooserSeekBar
+            android:id="@+id/redSeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/greenSeekBar"
+            android:layout_alignRight="@+id/greenSeekBar"
+            android:layout_below="@+id/colorChooserTextRed"
+            android:max="255"
+            android:maxHeight="3dip"
+            android:minHeight="3dip"
+            android:progressDrawable="@drawable/xml_red_progress"
+            android:textColor="@android:color/holo_red_light"
+            android:thumb="@drawable/xml_red_thumb" />
+
+        <org.vargasoft.colorpicker.ColorChooserSeekBar
+            android:id="@+id/greenSeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/colorChooserTextGreen"
+            android:max="255"
+            android:maxHeight="3dip"
+            android:minHeight="3dip"
+            android:progressDrawable="@drawable/xml_green_progress"
+            android:textColor="@android:color/holo_green_light"
+            android:thumb="@drawable/xml_green_thumb" />
+
+        <org.vargasoft.colorpicker.ColorChooserSeekBar
+            android:id="@+id/blueSeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/colorChooserTextBlue"
+            android:max="255"
+            android:maxHeight="3dip"
+            android:minHeight="3dip"
+            android:progressDrawable="@drawable/xml_blue_progress"
+            android:textColor="@android:color/holo_blue_light"
+            android:thumb="@drawable/xml_blue_thumb" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/hexCode"
+            android:layout_alignEnd="@+id/hexCode"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/hexCode"
+            android:labelFor="@id/hexCode"
+            android:text="#"/>
+
+        <EditText
+            android:id="@id/hexCode"
+            style="@style/Widget.AppCompat.EditText"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/blueSeekBar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:clickable="true"
+            android:inputType="textCapCharacters|textNoSuggestions"
+            android:lines="1"
+            android:maxLength="6"
+            android:maxLines="1"
+            android:paddingEnd="4dp"
+            android:paddingStart="4dp"
+            android:textSize="18sp"
+            tools:text="123456"/>
+
+        <Button
+            android:id="@+id/okColorButton"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_alignBaseline="@id/hexCode"
+            android:layout_alignParentBottom="false"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:clickable="true"
+            android:text="@string/ColorChooser.button"/>
+
+        <TextView
+            android:id="@+id/colorChooserTextAlpha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/ColorChooser.alpha" />
+
+        <TextView
+            android:id="@+id/colorChooserTextRed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/greenSeekBar"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/greenSeekBar"
+            android:layout_below="@+id/alphaSeekBar"
+            android:text="@string/ColorChooser.red" />
+
+        <TextView
+            android:id="@+id/colorChooserTextGreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/redSeekBar"
+            android:text="@string/ColorChooser.green" />
+
+        <TextView
+            android:id="@+id/colorChooserTextBlue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/greenSeekBar"
+            android:text="@string/ColorChooser.blue" />
+    </RelativeLayout>
+
+</LinearLayout>

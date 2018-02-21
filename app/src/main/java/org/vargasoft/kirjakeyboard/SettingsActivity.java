@@ -2,25 +2,20 @@ package org.vargasoft.kirjakeyboard;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.inputmethodservice.Keyboard;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.SeekBar;
-import android.widget.Spinner;
 import android.widget.Switch;
 
-import com.pes.androidmaterialcolorpickerdialog.ColorPicker;
-import com.pes.androidmaterialcolorpickerdialog.ColorPickerCallback;
+import org.vargasoft.colorpicker.ColorChooser;
+import org.vargasoft.colorpicker.ColorChooserListener;
 
 public class SettingsActivity extends AppCompatActivity
 {
 
-    private ColorPicker fontColorPicker;
-    private ColorPicker keyColorPicker;
+    private ColorChooser fontColorPicker;
+    private ColorChooser keyColorPicker;
     private KirjaKeyboardView keyboardView;
     private Intent listActivityIntent;
     private Switch switch1;
@@ -42,9 +37,9 @@ public class SettingsActivity extends AppCompatActivity
         int fontColor = keyboardView.getCustomFontColor();
         int keyColor = keyboardView.getCustomKeyColor();
 
-        fontColorPicker = new ColorPicker(this, Color.red(fontColor),Color.green(fontColor),Color.blue(fontColor));
-        keyColorPicker = new ColorPicker(this,Color.alpha(keyColor),Color.red(keyColor),Color.green(keyColor),Color.blue(keyColor));
-        fontColorPicker.setCallback(new ColorPickerCallback()
+        fontColorPicker = new ColorChooser(this, Color.red(fontColor),Color.green(fontColor),Color.blue(fontColor));
+        keyColorPicker = new ColorChooser(this,Color.alpha(keyColor),Color.red(keyColor),Color.green(keyColor),Color.blue(keyColor));
+        fontColorPicker.setListener(new ColorChooserListener()
         {
             @Override
             public void onColorChosen(@ColorInt int color)
@@ -55,7 +50,7 @@ public class SettingsActivity extends AppCompatActivity
                 fontColorPicker.dismiss();
             }
         });
-        keyColorPicker.setCallback(new ColorPickerCallback()
+        keyColorPicker.setListener(new ColorChooserListener()
         {
             @Override
             public void onColorChosen(@ColorInt int color)

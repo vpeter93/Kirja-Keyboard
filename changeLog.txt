@@ -15,6 +15,11 @@ Tervezett Változások
 ▶ Felhasználó által megadható legyen a gombtextúra
 ▶ Automatikus nagybetűkezelés bekapcsolható formában
 ----------------------------------------------------------------------------------------------
+Kirja Keyboard v0.8.2 2018.02.18
+----------------------------------------------------------------------------------------------
+▶ Alapértelmezetten látszanak a textúrák a beállítható témán
+▶ Színválasztó dialógusablakok áttervezése
+----------------------------------------------------------------------------------------------
 Kirja Keyboard v0.8.1 2018.02.13
 ----------------------------------------------------------------------------------------------
 ▶ Javított enterkezelés

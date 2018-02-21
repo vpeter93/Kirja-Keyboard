@@ -14,6 +14,12 @@
     <string name="title_activity_settings">Billentyűzet beállítások</string>
     <string name="selectTexture">Válaszd ki a háttértextúrát!</string>
     <string name="test">Teszt</string>
+    <string name="ColorChooser.red">Piros</string>
+    <string name="ColorChooser.blue">Kék</string>
+    <string name="ColorChooser.green">Zöld</string>
+    <string name="ColorChooser.alpha">Átlátszatlanság</string>
+    <string name="ColorChooser.button">Kiválasztás</string>
+    <string name="ColorChooser.errorhex">Hexa kód formátum érvénytelen</string>
 
 
     <string-array name="names">

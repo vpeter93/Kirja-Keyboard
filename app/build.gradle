@@ -8,10 +8,10 @@ android {
     buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "keyboard.kirjasoft.org.kirjakeyboard"
-        minSdkVersion 16
+        minSdkVersion 14
         targetSdkVersion 27
-        versionCode 8006
-        versionName "0.8.1"
+        versionCode 8007
+        versionName "0.8.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         resConfigs "en", "hu"
     }
@@ -60,5 +60,4 @@ dependencies {
     compile 'com.android.support:appcompat-v7:27.0.2'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
-    compile 'com.pes.materialcolorpicker:library:1.2.0'
 }

@@ -71,7 +71,7 @@ public class KirjaKeyboardView extends KeyboardView
         theme = PreferenceManager.getDefaultSharedPreferences(getContext()).getInt("theme",0);
         customTexture = PreferenceManager.getDefaultSharedPreferences(getContext()).getInt("customTexture",0);
         customFontColor = PreferenceManager.getDefaultSharedPreferences(getContext()).getInt("customFontColor",Color.BLACK);
-        customKeyColor = PreferenceManager.getDefaultSharedPreferences(getContext()).getInt("customKeyColor",Color.WHITE);
+        customKeyColor = PreferenceManager.getDefaultSharedPreferences(getContext()).getInt("customKeyColor",Color.argb(80,255,255,255));
         keyHeightDp = PreferenceManager.getDefaultSharedPreferences(getContext()).getInt("keyHeightDp",40);
         numbersInMainView = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("numbersInMainView",true);
     }

@@ -14,6 +14,16 @@
     <string name="title_activity_settings">Keyboard settings</string>
     <string name="selectTexture">Select your background texture!</string>
     <string name="test">Test</string>
+    <string name="ColorChooser.red">Red</string>
+    <string name="ColorChooser.blue">Blue</string>
+    <string name="ColorChooser.green">Green</string>
+    <string name="ColorChooser.alpha">Alpha</string>
+    <string name="ColorChooser.button">Select</string>
+    <string name="ColorChooser.errorhex">Hex Code Format incorrect</string>
+
+
+
+
 
 
     <string-array name="names">

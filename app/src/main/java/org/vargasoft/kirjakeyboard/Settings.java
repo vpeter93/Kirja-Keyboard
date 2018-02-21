@@ -10,7 +10,7 @@ public class Settings
 {
     private static Settings instance;
     private int customFontColor = Color.BLACK;
-    private int customKeyColor = Color.WHITE;
+    private int customKeyColor = Color.argb(80,255,255,255);
     private int customTexture = 0;
     private int keyHeightDp = 40;
     private boolean numbersInMainView = true;

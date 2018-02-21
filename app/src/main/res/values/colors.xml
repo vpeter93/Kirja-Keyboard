@@ -8,4 +8,15 @@
     <color name="colorNeonGreen">#00FF00</color>
     <color name="colorCream">#F5DCB3</color>
     <color name="colorPurple">#800080</color>
+
+    <color name="colorchooser_white">#ffffff</color>
+    <color name="colorchooser_red">#f44336</color>
+    <color name="colorchooser_green">#4caf50</color>
+    <color name="colorchooser_blue">#2196f3</color>
+    <color name="colorchooser_grey">#b3b3b3</color>
+    <color name="colorchooser_lightgrey">#d9d9d9</color>
+    <color name="colorchooser_dribble">#ea4c89</color>
+    <color name="colorchooser_dribbledark">#c32361</color>
+    <color name="colorchooser_black">#000000</color>
+    <color name="colorchooser_dialogcolor">#009688</color>
 </resources>

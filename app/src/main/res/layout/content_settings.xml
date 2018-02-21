@@ -93,8 +93,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="202dp"
-        android:layout_marginTop="130dp"
-        android:text="A betűszín, gombszín és textúrabeállítás a szögletes gombokat tartalmazó témára érvényes. A nagy gombok és a számok a főképernyőn beállítások érvényesítéséhez nyomd meg a VÁLT gombot a billentyűzeten!"
+        android:layout_marginTop="150dp"
+        android:text="A betűszín, háttérszín és textúrabeállítás a szögletes gombokat tartalmazó témára érvényes. A nagy gombok és a számok a főképernyőn beállítások érvényesítéséhez nyomd meg a VÁLT gombot a billentyűzeten! Egyszínű gombokért a háttérszín átlátszatlanságát állítsuk maximálisra."
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
