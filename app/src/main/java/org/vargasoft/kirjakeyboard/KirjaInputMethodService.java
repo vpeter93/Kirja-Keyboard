@@ -45,15 +45,21 @@ public class KirjaInputMethodService extends InputMethodService implements Keybo
 
     @Override
     public void onStartInput(EditorInfo info, boolean restarting) {
-        super.onStartCandidatesView(info, restarting);
 
+        super.onStartInput(info, restarting);
+        //super.onStartCandidatesView(info, restarting);
+        setInputView(onCreateInputView());
         int inputType = info.inputType & InputType.TYPE_MASK_VARIATION;
        // int inputflags = info.inputType | InputType.TYPE_MASK_FLAGS;
 
-        if(inputType == EditorInfo.TYPE_TEXT_VARIATION_URI)
+       /* if(inputType == EditorInfo.TYPE_TEXT_VARIATION_URI)
         {
             multiLineText = false;
-        }
+        }*/
+        /*if (0 != (info.inputType & InputType.TYPE_TEXT_FLAG_MULTI_LINE))
+        {
+            isFacebookMessenger = true;
+        }*/
         /*if(inputType == EditorInfo.TYPE_TEXT_VARIATION_NORMAL)
         {
             Log.wtf("..............","-----------------"+"EditorInfo.TYPE_TEXT_VARIATION_NORMAL");
@@ -90,11 +96,11 @@ public class KirjaInputMethodService extends InputMethodService implements Keybo
         {
             Log.wtf("..............","-----------------"+"EditorInfo.TYPE_TEXT_VARIATION_SHORT_MESSAGE");
         }*/
-        else
+       /* else
         {
             multiLineText = true;
-        }
-        if(info.packageName.equals("com.facebook.orca") || inputType == EditorInfo.TYPE_TEXT_VARIATION_LONG_MESSAGE || inputType == EditorInfo.TYPE_TEXT_VARIATION_SHORT_MESSAGE)
+        }*/
+        if(info.packageName.equals("com.facebook.orca") || inputType == EditorInfo.TYPE_TEXT_VARIATION_LONG_MESSAGE || inputType == EditorInfo.TYPE_TEXT_VARIATION_SHORT_MESSAGE || 0 != (info.inputType & InputType.TYPE_TEXT_FLAG_MULTI_LINE))
         {
             isFacebookMessenger = true;
         }
@@ -122,16 +128,28 @@ public class KirjaInputMethodService extends InputMethodService implements Keybo
         }
         keyboardView.setKeyboard(keyboard);
         keyboardView.setOnKeyboardActionListener(this);
+        keyboardView.invalidateAllKeys();
     }
     public void switchSpecific()
     {
-        if(keyboardView.getKeyHeightDp() == 40)
-            keyboard = new Keyboard(this, R.xml.specific);
-        else if(keyboardView.getKeyHeightDp() == 32)
-            keyboard = new Keyboard(this, R.xml.specificsmall);
+        if(!keyboardView.getNumbersInMainView())
+        {
+            if(keyboardView.getKeyHeightDp() == 40)
+                keyboard = new Keyboard(this, R.xml.specific);
+            else if(keyboardView.getKeyHeightDp() == 32)
+                keyboard = new Keyboard(this, R.xml.specificsmall);
+        }
+        else
+        {
+            if(keyboardView.getKeyHeightDp() == 40)
+                keyboard = new Keyboard(this, R.xml.specificwithnumbers);
+            else if(keyboardView.getKeyHeightDp() == 32)
+                keyboard = new Keyboard(this, R.xml.specificsmallwithnumbers);
+        }
 
         keyboardView.setKeyboard(keyboard);
         keyboardView.setOnKeyboardActionListener(this);
+        keyboardView.invalidateAllKeys();
     }
     private void capsLock()
     {
