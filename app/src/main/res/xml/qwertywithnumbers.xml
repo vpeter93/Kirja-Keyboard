@@ -27,7 +27,6 @@
         <Key android:codes="55" android:keyLabel="7" android:horizontalGap="1.5%p"/>
         <Key android:codes="56" android:keyLabel="8" android:horizontalGap="1.5%p"/>
         <Key android:codes="57" android:keyLabel="9" android:horizontalGap="1.5%p" android:keyEdgeFlags="right" android:keyWidth="8.7%p"/>
-
     </Row>
     <Row>
         <Key android:codes="5000" android:keyLabel="á" android:keyEdgeFlags="left"/>
