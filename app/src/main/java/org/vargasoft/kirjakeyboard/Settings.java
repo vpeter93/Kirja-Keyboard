@@ -15,6 +15,7 @@ public class Settings
     private int keyHeightDp = 40;
     private boolean numbersInMainView = true;
     private int theme = 0;
+    private boolean automataToUppercase = false;
 
     public static Settings getInstance()
     {
@@ -42,4 +43,6 @@ public class Settings
     public void setKeyHeightDp(int value){keyHeightDp = value;}
     public void setTheme(int value){theme = value;}
     public int getTheme(){return theme;}
+    public void setAutomataToUppercase(boolean value){ automataToUppercase = value;}
+    public boolean getAutomataToUppercase(){return automataToUppercase;}
 }

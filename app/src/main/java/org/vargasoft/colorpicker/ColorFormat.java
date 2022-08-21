@@ -1,6 +1,6 @@
 package org.vargasoft.colorpicker;
 
-import android.support.annotation.IntRange;
+import androidx.annotation.IntRange;
 
 /**
  * Created by Peti on 2018. 02. 18..

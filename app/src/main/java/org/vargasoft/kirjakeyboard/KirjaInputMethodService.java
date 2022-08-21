@@ -28,10 +28,13 @@ public class KirjaInputMethodService extends InputMethodService implements Keybo
     private final int KEY_RIGHT_PAREN 	  = 5011;
 
     private boolean isCapsLockOn 		  = false;
-    private boolean multiLineText;
     private boolean isFacebookMessenger;
 
-    @Override public View onCreateInputView()
+    private boolean lastIsUppercase = false;
+    private boolean lastIsSentenceEnd = false;
+
+    @Override
+    public View onCreateInputView()
     {
         keyboardView = (KirjaKeyboardView)getLayoutInflater().inflate(R.layout.keyboard, null);
         keyboardView.loadPreferences();
@@ -47,69 +50,9 @@ public class KirjaInputMethodService extends InputMethodService implements Keybo
     public void onStartInput(EditorInfo info, boolean restarting) {
 
         super.onStartInput(info, restarting);
-        //super.onStartCandidatesView(info, restarting);
         setInputView(onCreateInputView());
         int inputType = info.inputType & InputType.TYPE_MASK_VARIATION;
-       // int inputflags = info.inputType | InputType.TYPE_MASK_FLAGS;
-
-       /* if(inputType == EditorInfo.TYPE_TEXT_VARIATION_URI)
-        {
-            multiLineText = false;
-        }*/
-        /*if (0 != (info.inputType & InputType.TYPE_TEXT_FLAG_MULTI_LINE))
-        {
-            isFacebookMessenger = true;
-        }*/
-        /*if(inputType == EditorInfo.TYPE_TEXT_VARIATION_NORMAL)
-        {
-            Log.wtf("..............","-----------------"+"EditorInfo.TYPE_TEXT_VARIATION_NORMAL");
-        }
-        if(inputType == EditorInfo.TYPE_TEXT_VARIATION_LONG_MESSAGE)
-        {
-            Log.wtf("..............","-----------------"+"EditorInfo.TYPE_TEXT_VARIATION_LONG_MESSAGE");
-        }
-        if(inputType == EditorInfo.TYPE_TEXT_VARIATION_WEB_EDIT_TEXT)
-        {
-            Log.wtf("..............","-----------------"+"EditorInfo.TYPE_TEXT_VARIATION_WEB_EDIT_TEXT");
-        }
-        if(inputType == EditorInfo.TYPE_NULL)
-        {
-            Log.wtf("..............","-----------------"+"EditorInfo.TYPE_NULL");
-        }
-        if((inputflags & EditorInfo.TYPE_TEXT_FLAG_IME_MULTI_LINE)!=0)
-        {
-            Log.wtf("..............","-----------------"+"EditorInfo.TYPE_TEXT_FLAG_IME_MULTI_LINE");
-        }
-        if((inputflags & EditorInfo.TYPE_TEXT_FLAG_MULTI_LINE)!=0)
-        {
-            Log.wtf("..............","-----------------"+"EditorInfo.TYPE_TEXT_FLAG_MULTI_LINE");
-        }
-        if((inputType & EditorInfo.TYPE_TEXT_FLAG_AUTO_COMPLETE)!=0)
-        {
-            Log.wtf("..............","-----------------"+"EditorInfo.TYPE_TEXT_FLAG_AUTO_COMPLETE");
-        }
-        if((inputType & EditorInfo.TYPE_TEXT_FLAG_CAP_SENTENCES)!=0)
-        {
-            Log.wtf("..............","-----------------"+"EditorInfo.TYPE_TEXT_FLAG_CAP_SENTENCES");
-        }
-        if(inputType == EditorInfo.TYPE_TEXT_VARIATION_SHORT_MESSAGE)
-        {
-            Log.wtf("..............","-----------------"+"EditorInfo.TYPE_TEXT_VARIATION_SHORT_MESSAGE");
-        }*/
-       /* else
-        {
-            multiLineText = true;
-        }*/
-        if(info.packageName.equals("com.facebook.orca") || inputType == EditorInfo.TYPE_TEXT_VARIATION_LONG_MESSAGE || inputType == EditorInfo.TYPE_TEXT_VARIATION_SHORT_MESSAGE || 0 != (info.inputType & InputType.TYPE_TEXT_FLAG_MULTI_LINE))
-        {
-            isFacebookMessenger = true;
-        }
-        else
-        {
-            isFacebookMessenger = false;
-
-        }
-
+        isFacebookMessenger = info.packageName.equals("com.facebook.orca") || inputType == EditorInfo.TYPE_TEXT_VARIATION_LONG_MESSAGE || inputType == EditorInfo.TYPE_TEXT_VARIATION_SHORT_MESSAGE || 0 != (info.inputType & InputType.TYPE_TEXT_FLAG_MULTI_LINE);
     }
 
     public void switchQwerty()
@@ -184,25 +127,18 @@ public class KirjaInputMethodService extends InputMethodService implements Keybo
             keyboardView.invalidateAllKeys();
         }
     }
-    @Override public boolean onKeyDown(int keyCode, KeyEvent event) {
-
-
-
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode == KeyEvent.KEYCODE_ENTER)
             return false;
-
-
         return super.onKeyDown(keyCode, event);
     }
     @Override public void onKey(int primaryCode, int[] keyCodes)
     {
         InputConnection ic = getCurrentInputConnection();
-
-
         char code;
         switch(primaryCode)
         {
-
             case 32 :
                 ic.commitText(" ",1);
             break;
@@ -214,9 +150,7 @@ public class KirjaInputMethodService extends InputMethodService implements Keybo
                 ic.deleteSurroundingText(1, 0);
                 break;
             case -4://ENTER KEY
-                /*if(multiLineText && !isFacebookMessenger)
-                   ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));*/
-                if(/*!multiLineText &&*/ !isFacebookMessenger)
+                if(!isFacebookMessenger)
                     sendDefaultEditorAction(true);
                 else if(isFacebookMessenger)
                 {
@@ -303,87 +237,37 @@ public class KirjaInputMethodService extends InputMethodService implements Keybo
                 ic.commitText("*",1);
             break;
             case 4998:
-                code = 'ä';
-                if(isCapsLockOn)
-                {
-                    code = Character.toUpperCase(code);
-                }
-                ic.commitText(String.valueOf(code),1);
+                press('ä', 1, ic);
             break;
             case 4999:
                 ic.commitText(";",1);
             break;
             case 5000:
-                code = 'á';
-                if(isCapsLockOn)
-                {
-                    code = Character.toUpperCase(code);
-                }
-                ic.commitText(String.valueOf(code),1);
+                press('á', 1, ic);
             break;
             case 5001:
-                code = 'é';
-                if(isCapsLockOn)
-                {
-                    code = Character.toUpperCase(code);
-                }
-                ic.commitText(String.valueOf(code),1);
+                press('é', 1, ic);
             break;
             case 5002:
-                code = 'ű';
-                if(isCapsLockOn)
-                {
-                    code = Character.toUpperCase(code);
-                }
-                ic.commitText(String.valueOf(code),1);
+                press('ű', 1, ic);
             break;
             case 5003:
-                code = 'í';
-                if(isCapsLockOn)
-                {
-                    code = Character.toUpperCase(code);
-                }
-                ic.commitText(String.valueOf(code),1);
+                press('í', 1, ic);
             break;
             case 5004:
-                code = 'ú';
-                if(isCapsLockOn)
-                {
-                    code = Character.toUpperCase(code);
-                }
-                ic.commitText(String.valueOf(code),1);
+                press('ú', 1, ic);
             break;
             case 5005:
-                code = 'ó';
-                if(isCapsLockOn)
-                {
-                    code = Character.toUpperCase(code);
-                }
-                ic.commitText(String.valueOf(code),1);
+                press('ó', 1, ic);
             break;
             case 5006:
-                code = 'ő';
-                if(isCapsLockOn)
-                {
-                    code = Character.toUpperCase(code);
-                }
-                ic.commitText(String.valueOf(code),1);
+                press('ő', 1, ic);
             break;
             case 5007:
-                code = 'ö';
-                if(isCapsLockOn)
-                {
-                    code = Character.toUpperCase(code);
-                }
-                ic.commitText(String.valueOf(code),1);
+                press('ö', 1, ic);
             break;
             case KEY_Ü:
-                code = 'ü';
-                if(isCapsLockOn)
-                {
-                    code = Character.toUpperCase(code);
-                }
-                ic.commitText(String.valueOf(code), 1);
+                press('ü', 1, ic);
             break;
             case KEY_LEFT_PAREN:    ic.commitText("(",1); break;
             case KEY_RIGHT_PAREN:   ic.commitText(")",1); break;
@@ -411,70 +295,53 @@ public class KirjaInputMethodService extends InputMethodService implements Keybo
             case 5041: 				ic.commitText("°",1); break;
             case 6000: 				ic.commitText("'",1); break;
             case 5042:
-                code = 'đ';
-                if(isCapsLockOn)
-                {
-                    code = Character.toUpperCase(code);
-                }
-                ic.commitText(String.valueOf(code), 1);
+                press('đ', 1, ic);
             break;
             case 5043:
-                code = 'Đ';
-                if(isCapsLockOn)
-                {
-                    code = Character.toUpperCase(code);
-                }
-                ic.commitText(String.valueOf(code), 1);
+                press('Đ', 1, ic);
             break;
             case 5044:
-                code = 'ł';
-                if(isCapsLockOn)
-                {
-                    code = Character.toUpperCase(code);
-                }
-                ic.commitText(String.valueOf(code), 1);
+                press('ł', 1, ic);
             break;
             case 5045:
-                code = 'Ł';
-                if(isCapsLockOn)
-                {
-                    code = Character.toUpperCase(code);
-                }
-                ic.commitText(String.valueOf(code), 1);
+                press('Ł', 1, ic);
             break;
             case 5046:
-                code = 'ß';
-                if(isCapsLockOn)
-                {
-                    code = Character.toUpperCase(code);
-                }
-                ic.commitText(String.valueOf(code), 1);
+                press('ß', 1, ic);
             break;
             case 5047: 				ic.commitText("¤",1); break;
             case 5048: 				ic.commitText("€",1); break;
             case 5049: 				ic.commitText("☺",1); break;
             default:
                 code = (char)primaryCode;
-                if(Character.isLetter(code) && isCapsLockOn)
-                {
-                    code = Character.toUpperCase(code);
-                }
-                ic.commitText(String.valueOf(code),1);
+                press(code, 1, ic);
             break;
         }
     }
 
+    private void press(char code, int newCursorPosition, InputConnection ic)
+    {
+        if(keyboardView.getAutomataToUppercase())
+        {
+            if(lastIsUppercase)
+            {
+                isCapsLockOn = false;
+                capsLock();
+            }
+            lastIsSentenceEnd = code == '.' || code == '?' || code == '!';
+        }
+        code = Character.isLetter(code) && isCapsLockOn ? Character.toUpperCase(code) : code;
+        lastIsUppercase = isCapsLockOn;
+
+        ic.commitText(String.valueOf(code), newCursorPosition);
+    }
+
     @Override public void onPress(int primaryCode)
     {
-        if (primaryCode == 5012 || primaryCode == 5013 || primaryCode == 4993 || primaryCode == -5 || primaryCode == -4 || primaryCode== 32)
-        {
-
-        }
-        else
-        {
-            keyboardView.setPreviewEnabled(true);
-        }
+        keyboardView.setPreviewEnabled(!(primaryCode == 5012 || primaryCode == 5013 || primaryCode == 4993 || primaryCode == -5 || primaryCode == -4 || primaryCode== 32));
     }
+
+
 
     @Override public void onRelease(int primaryCode)
     {

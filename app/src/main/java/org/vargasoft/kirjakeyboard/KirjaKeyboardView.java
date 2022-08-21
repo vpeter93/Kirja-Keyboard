@@ -9,8 +9,8 @@ import android.graphics.drawable.Drawable;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.preference.PreferenceManager;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.content.res.ResourcesCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 
@@ -30,6 +30,7 @@ public class KirjaKeyboardView extends KeyboardView
     private int customTexture;
     private int keyHeightDp;
     private boolean numbersInMainView;
+    private boolean automataToUppercase;
 
     public KirjaKeyboardView(Context context, AttributeSet attrs)
     {
@@ -49,6 +50,8 @@ public class KirjaKeyboardView extends KeyboardView
     public int getCustomKeyColor(){return customKeyColor;}
     public boolean getNumbersInMainView(){return numbersInMainView;}
     public void setNumbersInMainView(boolean value){ numbersInMainView = value;}
+    public void setAutomataToUppercase(boolean value){ automataToUppercase = value;}
+    public boolean getAutomataToUppercase(){return automataToUppercase;}
     public void switchTheme()
     {
         switch(theme)
@@ -74,6 +77,7 @@ public class KirjaKeyboardView extends KeyboardView
         customKeyColor = PreferenceManager.getDefaultSharedPreferences(getContext()).getInt("customKeyColor",Color.argb(80,255,255,255));
         keyHeightDp = PreferenceManager.getDefaultSharedPreferences(getContext()).getInt("keyHeightDp",40);
         numbersInMainView = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("numbersInMainView",true);
+        automataToUppercase = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("automataToUppercase",false);
     }
 
     public void loadFromSettings()
@@ -84,6 +88,7 @@ public class KirjaKeyboardView extends KeyboardView
         keyHeightDp = Settings.getInstance().getKeyHeightDp();
         numbersInMainView = Settings.getInstance().getNumbersInMainView();
         theme = Settings.getInstance().getTheme();
+        automataToUppercase = Settings.getInstance().getAutomataToUppercase();
     }
 
     /**
@@ -97,6 +102,8 @@ public class KirjaKeyboardView extends KeyboardView
         PreferenceManager.getDefaultSharedPreferences(getContext()).edit().putInt("customKeyColor",customKeyColor).apply();
         PreferenceManager.getDefaultSharedPreferences(getContext()).edit().putInt("keyHeightDp",keyHeightDp).apply();
         PreferenceManager.getDefaultSharedPreferences(getContext()).edit().putBoolean("numbersInMainView",numbersInMainView).apply();
+        PreferenceManager.getDefaultSharedPreferences(getContext()).edit().putBoolean("automataToUppercase",automataToUppercase).apply();
+
     }
     public int getKeyHeightDp()
     {
